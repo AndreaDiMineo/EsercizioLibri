@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrello</title>
+    <link th:href="@{/styles/buttonStyle.css}" rel="stylesheet" />
+    <link th:href="@{/styles/tableStyle.css}" rel="stylesheet" />
+</head>
+<body style="text-align: center">
+    <div style="display: flex; flex-direction: row; justify-content: center">
+        <button th:onclick="|window.location.href='/homepage'|">Indietro</button>
+        <h1>Carrello</h1>
+    </div>
+    <table>
+        <tr th:each="c : ${carrello}">
+            <td th:text="${c.getTitolo()}"></td>
+            <td th:text="${c.getAutore()}"></td>
+            <td th:text="${c.getPrezzo()}"></td>
+            <td><a th:href="@{/deleteFromCart/{title}(title = ${c.getTitolo()})}"><button>Rimuovi</button></a></td>
+        </tr>
+    </table>
+</body>
+</html>

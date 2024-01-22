@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link th:href="@{/styles/buttonStyle.css}" rel="stylesheet" />
+</head>
+<body style="text-align: center">
+    <h1 th:text="'Benvenuto ' + ${username}"></h1>
+    <div style="display: flex; flex-direction: row; justify-content: center">
+        <button th:onclick="|window.location.href='/books'|">Lista di libri</button>
+        <button th:onclick="|window.location.href='/add'|">Aggiungi un libro</button>
+        <button th:onclick="|window.location.href='/cart'|">Carrello</button>
+        <button th:onclick="|window.location.href='/profile'|">Profilo</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Aggiungi un libro</title>
+    <link th:href="@{/styles/buttonStyle.css}" rel="stylesheet" />
+</head>
+<body style="text-align: center">
+    <div style="display: flex; flex-direction: row; justify-content: center">
+        <button th:onclick="|window.location.href='/homepage'|">Indietro</button>
+        <h1>Aggiungi un libro</h1>
+    </div>
+    <form th:action="@{/add}" th:object="${libro}" method="post" style="justify-content: center">
+        <label>Titolo</label>
+        <input type="text" th:field="*{titolo}">
+        <p th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></p><br>
+        <label>Autore</label>
+        <input type="text" th:field="*{autore}">
+        <p th:if="${#fields.hasErrors('autore')}" th:errors="*{autore}"></p><br>
+        <label>Anno di pubblicazione</label>
+        <input type="text" th:field="*{anno}">
+        <p th:if="${#fields.hasErrors('anno')}" th:errors="*{anno}"></p><br>
+        <label>Prezzo</label>
+        <input type="number" th:field="*{prezzo}">
+        <p th:if="${#fields.hasErrors('prezzo')}" th:errors="*{prezzo}"></p><br>
+        <button type="submit">Aggiungi</button>
+    </form>
+</body>
+</html>
+
+<style>
+    input {
+        margin-bottom: 1rem;
+    }
+</style>

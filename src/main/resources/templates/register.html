@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrazione</title>
+    <link th:href="@{/styles/buttonStyle.css}" rel="stylesheet" />
+</head>
+<body style="text-align: center">
+    <h1>Registrazione</h1>
+    <form th:action="@{/registerUser}" th:object="${utente}" method="post" style="justify-content: center">
+        <label>Nome</label>
+        <input type="text" th:field="*{nome}">
+        <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p><br>
+        <label>Cognome</label>
+        <input type="text" th:field="*{cognome}">
+        <p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p><br>
+        <label>Username</label>
+        <input type="text" th:field="*{username}">
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p><br>
+        <label>Password</label>
+        <input type="password" th:field="*{passwordUser}">
+        <p th:if="${#fields.hasErrors('passwordUser')}" th:errors="*{passwordUser}"></p><br>
+        <button type="submit">Registrati</button>
+    </form>
+</body>
+</html>
+
+<style>
+    input {
+        margin-bottom: 1rem;
+    }
+</style>

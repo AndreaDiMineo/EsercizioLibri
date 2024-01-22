@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Benvenuto</title>
+    <link th:href="@{/styles/buttonStyle.css}" rel="stylesheet" />
+</head>
+<body style="text-align: center">
+  <h1>Benvenuto nel BookStore</h1>
+  <button th:onclick="|window.location.href='/registerUser'|">Registrati</button>
+  <button th:onclick="|window.location.href='/loginUser'|">Accedi</button>
+</body>
+</html>

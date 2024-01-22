@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profilo</title>
+    <link th:href="@{/styles/buttonStyle.css}" rel="stylesheet" />
+</head>
+<body style="text-align: center">
+  <div style="display: flex; flex-direction: row; justify-content: center">
+    <button th:onclick="|window.location.href='/homepage'|">Indietro</button>
+    <h1 th:text="${profilo.getUsername()}"></h1>
+  </div>
+  <p th:text="'Nome: ' + ${profilo.getNome()}"></p>
+  <p th:text="'Cognome: ' + ${profilo.getCognome()}"></p>
+  <p th:text="'Password: ' + ${profilo.getPasswordUser()}"></p>
+  <div style="display: flex; flex-direction: row; justify-content: center">
+      <button th:onclick="|window.location.href='/'|">Log out</button>
+      <button th:onclick="|window.location.href='/delete'|">Elimina profilo</button>
+  </div>
+</body>
+</html>

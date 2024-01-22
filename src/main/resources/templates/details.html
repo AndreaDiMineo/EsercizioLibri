@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettagli Libro</title>
+</head>
+<body style="text-align: center">
+    <h3 th:text="${libro.titolo}"></h3>
+    <p th:text="'Autore: ' + ${libro.autore}"></p>
+    <p th:text="'Anno: ' + ${libro.anno}"></p>
+    <p th:text="'Prezzo: ' + ${libro.prezzo} + '€'"></p>
+</body>
+</html>
