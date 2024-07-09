@@ -2,7 +2,6 @@ package com.example.eserciziolibri.controller;
 
 import com.example.eserciziolibri.models.Credenziali;
 import com.example.eserciziolibri.models.Libro;
-import com.example.eserciziolibri.models.LibroAPI;
 import com.example.eserciziolibri.models.Utente;
 import com.example.eserciziolibri.repositories.CredenzialiRepository;
 import com.example.eserciziolibri.repositories.LibroRepository;
@@ -62,9 +61,9 @@ public class WebController {
             return "register";
         }
         else {
-            Credenziali credentials = credenzialiRepository.login(utente.getUsername(), utente.getPasswordUser());
-            user = utente;
-            userCred = credentials.getUsername();
+            int statusReg = credenzialiRepository.register(utente.getUsername(), utente.getPasswordUser());
+            user = utenteRepository.loadCred(utente.getUsername());
+            userCred = utente.getUsername();
             return "redirect:/homepage";
         }
     }
@@ -79,13 +78,13 @@ public class WebController {
     public String checkUser(@Valid Credenziali credenziali, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) return "login";
 
-        Credenziali credentials = credenzialiRepository.login(credenziali.getUsername(), credenziali.getPasswordUser());
-        if (credentials == null) {
+        Utente utente = utenteRepository.loadCred(credenziali.getUsername());
+        if (utente == null) {
             return "login";
         }
         else {
-            user = utenteRepository.loadCred(credentials.getUsername());
-            userCred = credentials.getUsername();
+            user = utente;
+            userCred = credenziali.getUsername();
             return "redirect:/homepage";
         }
     }
